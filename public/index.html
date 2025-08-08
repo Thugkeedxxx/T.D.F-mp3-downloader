@@ -5,29 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>T.D.F Mp3 Downloader - Powered by THUGKEED TECH</title>
 <style>
-  /* Reset */
+  /* Reset and base */
   * {
     margin: 0; padding: 0; box-sizing: border-box;
     font-family: 'Courier New', Courier, monospace;
   }
-
   body {
     background: #0d0d0d;
     color: #0f0;
-    overflow-x: hidden;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding: 2rem;
+    overflow-x: hidden;
   }
-
   #root {
     width: 100%;
     max-width: 900px;
   }
 
-  /* Glitch effect for title */
+  /* Title glitch effect */
   h1 {
     position: relative;
     font-size: 3.5rem;
@@ -38,7 +36,6 @@
     letter-spacing: 0.2rem;
     animation: flicker 2s infinite;
   }
-
   h1::before,
   h1::after {
     content: attr(data-text);
@@ -74,7 +71,6 @@
       text-shadow: none;
     }
   }
-
   @keyframes glitch1 {
     0% {
       clip-path: polygon(0 2%, 100% 2%, 100% 15%, 0 15%);
@@ -144,7 +140,6 @@
     background: currentColor;
     color: #000;
   }
-
   @keyframes slideIn {
     to {
       right: 20px;
@@ -155,8 +150,6 @@
       right: -300px;
     }
   }
-
-  /* Content blur when ads active */
   #content.blur {
     filter: blur(1.5px);
     pointer-events: none;
@@ -241,20 +234,17 @@
     transform: translateY(-6px);
     box-shadow: 0 0 12px #0f0;
   }
-
   .thumbnail {
     background-position: center;
     background-size: cover;
     height: 140px;
   }
-
   .info {
     padding: 1rem;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
   }
-
   .title {
     font-weight: 700;
     font-size: 1.1rem;
@@ -262,13 +252,11 @@
     color: #0f0;
     flex-grow: 1;
   }
-
   .channel {
     font-size: 0.9rem;
     color: #4caf50aa;
     margin-bottom: 1rem;
   }
-
   .btn-download {
     background: #ff3c00;
     border: none;
@@ -332,7 +320,7 @@
     const [countdown, setCountdown] = useState(10);
 
     const API_KEY = 'AIzaSyAZBeFmCnDwcRhwhHxB9QjT1x4UqJhjGPU';
-    const backendURL = ''; // Update after deploy!
+    const backendURL = 'https://t-d-f-mp3-downloader.onrender.com';
 
     useEffect(() => {
       if (adStep === 0) return;
@@ -414,7 +402,7 @@
 
     function handleDownload(videoId) {
       if (!backendURL) {
-        alert('https://t-d-f-mp3-downloader.onrender.com/');
+        alert('Backend URL not configured! Please update backendURL in the code after deploy.');
         return;
       }
       const downloadURL = `${backendURL}/download?url=https://www.youtube.com/watch?v=${videoId}`;
@@ -498,5 +486,6 @@
 
   ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
 </script>
+
 </body>
-</html>
+  </html>
